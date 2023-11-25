@@ -25,7 +25,7 @@ request's credentials mode is 'include'... ) with following
 lines (24 - 29)
 */
 var corsOptions = {
-  origin: ["http://localhost:5000"],
+  origin: ["https://kh-global.onrender.com"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 };

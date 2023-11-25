@@ -15,7 +15,7 @@ const Home = () => {
         navigate("/login");
       }
       const { data } = await axios.post(
-        "http://localhost:5000",
+        "https://kh-global.onrender.com",
         {},
         { withCredentials: true }
       );
