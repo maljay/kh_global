@@ -27,7 +27,8 @@ lines (24 - 29)
 var corsOptions = {
   origin: ["https://kh-global.onrender.com"],
   methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true,
+  allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
+  credentials: true
 };
 
 app.use(cors(corsOptions));
