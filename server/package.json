@@ -2,6 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
+  "proxy": "https://kh-global.onrender.com",
   "type": "module",
   "main": "index.js",
   "scripts": {
