@@ -23,7 +23,7 @@ Solve a bug (..The value of the 'Access-Control-Allow-Origin'
 header in the response must not be the wildcard '*' when the
 request's credentials mode is 'include'... ) with following
 lines (24 - 29)
-*/
+
 var corsOptions = {
   origin: ["https://kh-global.onrender.com"],
   methods: ["GET", "POST", "PUT", "DELETE"],
@@ -32,6 +32,17 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
+*/
+
+app.use(cors());
+app.use((req,res,next)=>{
+    res.header('Access-Control-Allow-Headers, *, Access-Control-Allow-Origin', 'Origin, X-Requested-with, Content_Type,Accept,Authorization','https://kh-global.onrender.com');
+    if(req.method === 'OPTIONS') {
+        res.header('Access-Control-Allow-Methods','PUT,POST,PATCH,DELETE,GET');
+        return res.status(200).json({});
+    }
+    next();
+});
 
 //app.use(cors())
 
