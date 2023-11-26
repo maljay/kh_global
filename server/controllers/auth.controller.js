@@ -1,8 +1,8 @@
 import User from "../models/user.model.js";
-//const { createSecretToken } = require("../util/secretToken");
+import "dotenv/config.js";
 import createSecretToken from "../utils/secretToken.js";
 import bcrypt from 'bcrypt';
-//const bcrypt = require("bcryptjs");
+
 
 const Signup = async (req, res, next) => {
   try {
