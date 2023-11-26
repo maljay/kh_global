@@ -43,15 +43,29 @@ const Login = async (req, res, next) => {
     if(!user){
       return res.json({message:'Email not registered' }) 
     }
+
     const auth = await bcrypt.compare(password,user.password)
+
     if (!auth) {
       return res.json({message:'Incorrect password!' }) 
     }
-     const token = createSecretToken(user._id);
-     res.cookie("token", token, {
-       withCredentials: true,
-       httpOnly: false,
-     });
+
+    const token = createSecretToken(user._id);
+
+    if (process.env.NODE_ENV === 'development') {
+      res.cookie("token", token, {
+        httpOnly: false,
+      });
+    }
+
+    if (process.env.NODE_ENV === 'production') {
+      res.cookie('token', token, {
+        httpOnly: true,
+        secure: true, // Set to true if using HTTPS
+        sameSite: 'none', // Set to 'none' if using cross-site requests
+      });
+    }
+     
      res.status(201).json({ message: "User logged in successfully", success: true });
      next()
   } catch (error) {

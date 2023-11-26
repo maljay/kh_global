@@ -28,9 +28,9 @@ app.use(
     credentials: true,
   })
 );
-app.set("trust proxy",1);//latest addition to allow cookies to be set in production
 
 /**unused latest addition to allow cookies to be set in production
+ * app.set("trust proxy",1);
  * app.use(session({
     secret: process.env.sessionSecret, // your secret key to check session
     resave: false,
