@@ -51,7 +51,7 @@ const startServer = async () => {
   try {
     // connect to the database
     connectDB(process.env.MONGODB_URI);
-    app.listen(process.env.PORT, () => console.log(`Server started on port http://localhost:${process.env.PORT}`));
+    app.listen(8080, () => console.log('Server started on port http://localhost:8080'));
   }catch(error) {
     console.log(error);
   }
