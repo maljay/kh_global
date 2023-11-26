@@ -11,6 +11,7 @@ const Signup = () => {
     username: "",
   });
   const { email, password, username } = inputValue;
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInputValue({
@@ -23,6 +24,7 @@ const Signup = () => {
     toast.error(err, {
       position: "bottom-left",
     });
+    
   const handleSuccess = (msg) =>
     toast.success(msg, {
       position: "bottom-right",
@@ -67,16 +69,18 @@ const Signup = () => {
           <input
             type="email"
             name="email"
+            id="email"
             value={email}
             placeholder="Enter your email"
             onChange={handleOnChange}
           />
         </div>
         <div>
-          <label htmlFor="email">Username</label>
+          <label htmlFor="username">Username</label>
           <input
             type="text"
             name="username"
+            id="username"
             value={username}
             placeholder="Enter your username"
             onChange={handleOnChange}
@@ -87,6 +91,7 @@ const Signup = () => {
           <input
             type="password"
             name="password"
+            id="password"
             value={password}
             placeholder="Enter your password"
             onChange={handleOnChange}

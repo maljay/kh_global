@@ -10,6 +10,7 @@ const Login = () => {
     password: "",
   });
   const { email, password } = inputValue;
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInputValue({
@@ -22,6 +23,7 @@ const Login = () => {
     toast.error(err, {
       position: "bottom-left",
     });
+    
   const handleSuccess = (msg) =>
     toast.success(msg, {
       position: "bottom-left",
@@ -66,6 +68,7 @@ const Login = () => {
           <input
             type="email"
             name="email"
+            id="email"
             value={email}
             placeholder="Enter your email"
             onChange={handleOnChange}
@@ -76,6 +79,7 @@ const Login = () => {
           <input
             type="password"
             name="password"
+            id="password"
             value={password}
             placeholder="Enter your password"
             onChange={handleOnChange}

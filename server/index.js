@@ -1,17 +1,42 @@
 import express from 'express'
-//import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
-//import compress from 'compression'
-//import cors from 'cors'
+import cors from 'cors'
 import "dotenv/config.js"; // allows us to use environment variables
-//import helmet from 'helmet'
 import connectDB from './connectDB/connect.js'
-//import userRoutes from './routes/user.routes.js'
 import authRoutes from './routes/auth.routes.js'
 
 const app = express()
 
-// Set middleware of CORS 
+//------------------------------------------------------------
+
+const startServer = async () => {
+  try {
+    // connect to the database
+    connectDB(process.env.MONGODB_URI);
+    app.listen(8080, () => console.log('Server started on port http://localhost:8080'));
+  }catch(error) {
+    console.log(error);
+  }
+}
+
+startServer();
+
+app.use(
+  cors({
+    origin: ["https://kh-global-links.netlify.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+app.use(cookieParser());
+
+app.use(express.json());
+
+app.use("/", authRoutes);
+
+//------------------------------------------------------------
+
+/** Set middleware of CORS (render solution)
 app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
@@ -32,12 +57,7 @@ app.use((req, res, next) => {
 
   next();
 });
-//app.use(bodyParser.json())
-//app.use(bodyParser.urlencoded({ extended: true }))
-app.use(cookieParser())
-app.use(express.json());
-//app.use(compress())
-//app.use(helmet())
+*/
 
 /**
 Solve a bug (..The value of the 'Access-Control-Allow-Origin'
@@ -64,7 +84,7 @@ app.use((req,res,next)=>{
     }
     next();
 });
- */
+ 
 //app.use(cors())
 
 //app.use('/', userRoutes)
@@ -90,3 +110,4 @@ const startServer = async () => {
 }
 
 startServer();
+*/
