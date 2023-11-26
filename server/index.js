@@ -15,7 +15,7 @@ const app = express()
 app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://your-frontend.com"
+    "https://kh-global-links.netlify.app"
   );
   res.setHeader(
     "Access-Control-Allow-Methods",
