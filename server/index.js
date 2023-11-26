@@ -28,6 +28,21 @@ app.use(
     credentials: true,
   })
 );
+app.set("trust proxy",1);//latest addition to allow cookies to be set in production
+
+/**unused latest addition to allow cookies to be set in production
+ * app.use(session({
+    secret: process.env.sessionSecret, // your secret key to check session
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 604800000, //one week(1000*60*60*24*7)
+             sameSite: "none",
+             secure : true
+            }, 
+    store: store
+}));
+ */
+
 app.use(cookieParser());
 
 app.use(express.json());
