@@ -23,16 +23,15 @@ Solve a bug (..The value of the 'Access-Control-Allow-Origin'
 header in the response must not be the wildcard '*' when the
 request's credentials mode is 'include'... ) with following
 lines (24 - 29)
-
+*/
 var corsOptions = {
-  origin: ["https://kh-global.onrender.com"],
+  origin: ["https://kh-global-links.netlify.app"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
   credentials: true
 };
 
 app.use(cors(corsOptions));
-*/
 
 //app.use(cors());
 /**
