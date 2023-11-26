@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "proxy":"https://kh-global-links.netlify.app/",
+  "proxy":"https://kh-global.onrender.com/",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index"
