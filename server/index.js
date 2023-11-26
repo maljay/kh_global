@@ -2,7 +2,7 @@ import express from 'express'
 //import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 //import compress from 'compression'
-import cors from 'cors'
+//import cors from 'cors'
 import "dotenv/config.js"; // allows us to use environment variables
 //import helmet from 'helmet'
 import connectDB from './connectDB/connect.js'
@@ -34,7 +34,7 @@ var corsOptions = {
 app.use(cors(corsOptions));
 */
 
-app.use(cors());
+//app.use(cors());
 /**
 app.use((req,res,next)=>{
     res.header('Access-Control-Allow-Headers, *, Access-Control-Allow-Origin', 'Origin, X-Requested-with, Content_Type,Accept,Authorization','https://kh-global.onrender.com');
