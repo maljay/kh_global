@@ -12,7 +12,6 @@ const Home = () => {
   const [username, setUsername] = useState("");
 
   const { userData, setUserData } = useContext(UserContext);
-  console.log(userData);
 
   if (userData) {
     setUsername(userData.username);

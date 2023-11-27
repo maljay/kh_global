@@ -37,9 +37,9 @@ const Signup = () => {
         "https://kh-global.onrender.com/signup",
         {
           ...inputValue,
-        },
-        { withCredentials: true }
+        }
       );
+      //{ withCredentials: true }
       const { success, message } = data;
       if (success) {
         handleSuccess(message);
