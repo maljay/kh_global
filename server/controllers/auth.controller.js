@@ -55,6 +55,7 @@ const Login = async (req, res, next) => {
     if (process.env.NODE_ENV === 'development') {
       res.cookie("token", token, {
         httpOnly: false,
+        domain: "onrender.com",
       });
     }
 
@@ -63,6 +64,7 @@ const Login = async (req, res, next) => {
         httpOnly: true,
         secure: true, // Set to true if using HTTPS
         sameSite: 'none', // Set to 'none' if using cross-site requests
+        domain: "onrender.com",
       });
     }
      
