@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
+import UserContext from "../components/User/User";
+
 const Login = () => {
+  const { setUserData } = useContext(UserContext);
+
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
     email: "",
@@ -40,9 +44,10 @@ const Login = () => {
         { withCredentials: true }
       );
       console.log(data);
-      const { success, message } = data;
+      const { success, message, username } = data;
       if (success) {
         handleSuccess(message);
+        setUserData(username);
         setTimeout(() => {
           navigate("/");
         }, 1000);

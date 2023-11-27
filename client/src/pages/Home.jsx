@@ -1,14 +1,27 @@
-import { useEffect, useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
-import axios from "axios";
+//import { useCookies } from "react-cookie";
+//import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+
+import UserContext from "../components/User/User";
 
 const Home = () => {
   const navigate = useNavigate();
-  const [cookies, removeCookie] = useCookies([]);
+  //const [cookies, removeCookie] = useCookies([]);
   const [username, setUsername] = useState("");
 
+  const { userData } = useContext(UserContext);
+  if (userData) {
+    setUsername(userData.username);
+      return userData
+        ? toast(`Hello ${userData.username}`, {
+            position: "top-right",
+          })
+        : (navigate("/login"));
+  }
+
+  /*
   useEffect(() => {
     const verifyCookie = async () => {
       if (!cookies.token) {
@@ -30,9 +43,10 @@ const Home = () => {
     };
     verifyCookie();
   }, [cookies, navigate, removeCookie]);
+  */
 
   const Logout = () => {
-    removeCookie("token");
+    //removeCookie("token");
     navigate("/login");
   };
 

@@ -1,14 +1,14 @@
 //const { Signup, Login } = require("../Controllers/AuthController");
 import express from 'express';
 import { Signup, Login } from '../controllers/auth.controller.js';
-import { userVerification } from '../middlewares/auth.middleware.js';
+//import { userVerification } from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
 
 router.post("/signup", Signup);
 router.post('/login', Login)
 
-router.post('/', userVerification)
+//router.post('/', userVerification)
 
 export default router;
 

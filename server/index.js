@@ -1,5 +1,5 @@
 import express from 'express';
-import cookieParser from 'cookie-parser';
+//import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import "dotenv/config.js";
 import connectDB from './connectDB/connect.js';
@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 });
 */
 
-app.use(cookieParser());
+//app.use(cookieParser());
 
 app.use(express.json());
 
