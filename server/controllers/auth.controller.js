@@ -61,10 +61,11 @@ const Login = async (req, res, next) => {
 
     if (process.env.NODE_ENV === 'production') {
       res.cookie('token', token, {
+        domain: 'kh-global-links.netlify.app',
+        path: '/',
         httpOnly: true,
         secure: true, // Set to true if using HTTPS
         sameSite: 'none', // Set to 'none' if using cross-site requests
-        domain: "onrender.com",
       });
     }
      
