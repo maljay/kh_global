@@ -11,14 +11,16 @@ const Home = () => {
   //const [cookies, removeCookie] = useCookies([]);
   const [username, setUsername] = useState("");
 
-  const { userData } = useContext(UserContext);
+  const { userData, setUserData } = useContext(UserContext);
+  console.log(userData);
+
   if (userData) {
     setUsername(userData.username);
-      return userData
-        ? toast(`Hello ${userData.username}`, {
-            position: "top-right",
-          })
-        : (navigate("/login"));
+    toast(`Hello ${userData.username}`, {
+      position: "top-right",
+    });
+  } else {
+    navigate("/login");
   }
 
   /*
@@ -47,6 +49,7 @@ const Home = () => {
 
   const Logout = () => {
     //removeCookie("token");
+    setUserData(null);
     navigate("/login");
   };
 
@@ -54,19 +57,15 @@ const Home = () => {
     <>
       <div className="home_page">
         <h4>
-          {" "}
           Welcome, <span>{username}</span>
         </h4>
         <h4>
-          {" "}
           To
         </h4>
         <h4>
-          {" "}
           <span id="k">K</span><span id="h">H</span> International
         </h4>
         <h4>
-          {" "}
           Global Links Ltd.
         </h4>
         <button onClick={Logout}>LOGOUT</button>

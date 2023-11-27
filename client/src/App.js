@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { Login, Signup, Home } from "./pages";
 
 import { useState } from "react";
-import UserContext from './UserContext';
+import UserContext from "./components/User/User";
 
 function App() {
   const [userData, setUserData] = useState(null);
