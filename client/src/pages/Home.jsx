@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 //import { useCookies } from "react-cookie";
 //import axios from "axios";
@@ -13,14 +13,16 @@ const Home = () => {
 
   const { userData, setUserData } = useContext(UserContext);
 
-  if (userData) {
-    setUsername(userData.username);
-    toast(`Hello ${userData.username}`, {
-      position: "top-right",
-    });
-  } else {
-    navigate("/login");
-  }
+  useEffect(()=>{
+		if (userData) {
+      setUsername(userData.username);
+      toast(`Hello ${userData.username}`, {
+        position: "top-right",
+      });
+    } else {
+      navigate("/login");
+    }
+	}, [userData, navigate])
 
   /*
   useEffect(() => {

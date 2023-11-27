@@ -47,8 +47,8 @@ const Login = () => {
       const { success, message, username } = data;
       if (success) {
         handleSuccess(message);
-        setUserData(username);
         setTimeout(() => {
+          setUserData(username);
           navigate("/");
         }, 1000);
       } else {
